@@ -1,17 +1,21 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #ffe6f0; /* rosa muy suave */
-  padding: 20px;
-  margin: 0;
+* {
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background: #ffe6f0;
+  margin: 0;
+  padding: 20px;
+}
+
 h1 {
+  color: #d6336c;
   text-align: center;
-  color: #d6336c; /* rosa fuerte */
   margin-bottom: 30px;
 }
 
+/* Contenedor de los semestres en fila horizontal */
 #malla {
   display: flex;
   gap: 20px;
@@ -19,11 +23,12 @@ h1 {
   padding-bottom: 20px;
 }
 
+/* Cada semestre es una columna */
 .semestre {
-  background: #ffd1e8; /* rosa claro */
-  padding: 15px;
+  background: #ffd1e8;
   border-radius: 15px;
   box-shadow: 0 0 8px rgba(214, 51, 108, 0.4);
+  padding: 15px;
   min-width: 220px;
   display: flex;
   flex-direction: column;
@@ -32,10 +37,9 @@ h1 {
 }
 
 .semestre h2 {
+  color: #a12456;
   margin-top: 0;
   margin-bottom: 15px;
-  color: #a12456; /* rosa oscuro */
-  font-weight: bold;
 }
 
 ul {
@@ -45,43 +49,43 @@ ul {
 }
 
 li {
-  padding: 8px 12px;
-  margin-bottom: 8px;
+  background: #f7c9db;
   border-radius: 10px;
-  background: #f7c9db; /* rosa medio */
-  cursor: pointer;
+  margin-bottom: 8px;
+  padding: 8px 12px;
   opacity: 0.6;
+  cursor: pointer;
   transition: background-color 0.3s, opacity 0.3s;
   user-select: none;
 }
 
 li.habilitado {
+  background: #ff8fc2;
   opacity: 1;
-  background: #ff8fc2; /* rosa más fuerte */
 }
 
 li.aprobado {
-  background: #d6336c; /* rosa fuerte */
+  background: #d6336c;
   color: white;
   text-decoration: line-through;
   opacity: 1;
 }
 
 li:hover {
-  background-color: #f75a9c;
+  background: #f75a9c;
   color: white;
 }
 
 button {
   display: block;
   margin: 30px auto 0;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
   background: #d6336c;
+  border: none;
   color: white;
-  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 30px;
   cursor: pointer;
+  font-weight: bold;
   box-shadow: 0 4px 8px rgba(214, 51, 108, 0.4);
   transition: background-color 0.3s;
 }
