@@ -1,7 +1,7 @@
 const malla = [
   { semestre: 1, codigo: "FIN100-12", nombre: "Desarrollo integral", prereq: [] },
   { semestre: 1, codigo: "FIS1035", nombre: "Introducción a la física", prereq: [] },
-  { semestre: 1, codigo: "ICC141", nombre: "Introducción a la carrera", prereq: [] },
+  { semestre: 1, codigo: "ICC141", nombre: "Introducción a la Ingenieria en Construcción", prereq: [] },
   { semestre: 1, codigo: "MAT1001", nombre: "Fundamentos de matemáticas", prereq: [] },
 
   { semestre: 2, codigo: "FIS1002", nombre: "Física para ingeniería", prereq: ["MAT1001"] },
