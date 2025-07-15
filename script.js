@@ -1,1 +1,77 @@
+const malla = [
+  { semestre: 1, codigo: "FIN100-12", nombre: "Desarrollo integral" },
+  { semestre: 1, codigo: "FIS1035", nombre: "Introducción a la física" },
+  { semestre: 1, codigo: "ICC141", nombre: "Introducción a la carrera" },
+  { semestre: 1, codigo: "MAT1001", nombre: "Fundamentos de matemáticas" },
+
+  { semestre: 2, codigo: "FIS1002", nombre: "Física para ingeniería", prereq: ["MAT1001"] },
+  { semestre: 2, codigo: "ICC150", nombre: "Dibujo de ingeniería 1", prereq: ["ICC141"] },
+  { semestre: 2, codigo: "ICC151", nombre: "Química de los materiales", prereq: ["ICC141"] },
+  { semestre: 2, codigo: "MAT1002", nombre: "Cálculo Diferencial e Integral", prereq: ["MAT1001"] },
+
+  { semestre: 3, codigo: "ICC243", nombre: "Materiales de construcción", prereq: ["ICC151"] },
+  { semestre: 3, codigo: "ICC246", nombre: "Práctica 1", prereq: ["ICC150"] },
+  { semestre: 3, codigo: "ICC247", nombre: "Dibujo de ingeniería 2", prereq: ["ICC150"] },
+  { semestre: 3, codigo: "ING9001", nombre: "Inglés 1" },
+  { semestre: 3, codigo: "MAT1004", nombre: "Álgebra lineal", prereq: ["MAT1001"] },
+
+  // Puedes seguir agregando los demás semestres igual
+];
+
+const aprobados = new Set();
+
+function renderMalla() {
+  const contenedor = document.getElementById("malla");
+  contenedor.innerHTML = "";
+
+  for (let s = 1; s <= 9; s++) {
+    const semestre = malla.filter(r => r.semestre === s);
+    if (semestre.length === 0) continue;
+
+    const div = document.createElement("div");
+    div.className = "semestre";
+    div.innerHTML = `<h2>${s}° Semestre</h2>`;
+    const ul = document.createElement("ul");
+
+    semestre.forEach(ramo => {
+      const li = document.createElement("li");
+      li.textContent = `${ramo.codigo} - ${ramo.nombre}`;
+      li.dataset.codigo = ramo.codigo;
+
+      const requisitos = ramo.prereq || [];
+      const habilitado = requisitos.every(req => aprobados.has(req));
+
+      if (aprobados.has(ramo.codigo)) {
+        li.classList.add("aprobado");
+      } else if (habilitado) {
+        li.classList.add("habilitado");
+      }
+
+      if (habilitado || aprobados.has(ramo.codigo)) {
+        li.addEventListener("click", () => toggleRamo(ramo.codigo));
+      }
+
+      ul.appendChild(li);
+    });
+
+    div.appendChild(ul);
+    contenedor.appendChild(div);
+  }
+}
+
+function toggleRamo(codigo) {
+  if (aprobados.has(codigo)) {
+    aprobados.delete(codigo);
+  } else {
+    aprobados.add(codigo);
+  }
+  renderMalla();
+}
+
+function resetear() {
+  aprobados.clear();
+  renderMalla();
+}
+
+renderMalla();
 
