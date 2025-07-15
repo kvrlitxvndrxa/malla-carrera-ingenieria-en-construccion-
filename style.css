@@ -1,54 +1,91 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background: #ffe6f0; /* rosa muy suave */
   padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 h1 {
   text-align: center;
-  color: #003366;
+  color: #d6336c; /* rosa fuerte */
+  margin-bottom: 30px;
+}
+
+#malla {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
 }
 
 .semestre {
-  background: white;
-  padding: 10px;
-  margin: 20px 0;
-  border-left: 6px solid #003366;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  background: #ffd1e8; /* rosa claro */
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 8px rgba(214, 51, 108, 0.4);
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.semestre h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #a12456; /* rosa oscuro */
+  font-weight: bold;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  width: 100%;
 }
 
 li {
   padding: 8px 12px;
-  margin: 5px 0;
-  border-radius: 5px;
-  background: #ffe5e5;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: #f7c9db; /* rosa medio */
   cursor: pointer;
-  opacity: 0.5;
-  transition: 0.3s;
+  opacity: 0.6;
+  transition: background-color 0.3s, opacity 0.3s;
+  user-select: none;
 }
 
 li.habilitado {
   opacity: 1;
+  background: #ff8fc2; /* rosa más fuerte */
 }
 
 li.aprobado {
-  background: #c3e6cb;
+  background: #d6336c; /* rosa fuerte */
+  color: white;
   text-decoration: line-through;
+  opacity: 1;
+}
+
+li:hover {
+  background-color: #f75a9c;
+  color: white;
 }
 
 button {
   display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
+  margin: 30px auto 0;
+  padding: 12px 25px;
   border: none;
-  border-radius: 5px;
-  background: #003366;
+  border-radius: 30px;
+  background: #d6336c;
   color: white;
+  font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(214, 51, 108, 0.4);
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #a12456;
 }
